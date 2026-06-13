@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGMovies Production | Luxury Wedding Photography &amp; Cinematic Films, Rohini, Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#DDB892;
+    --gold-soft:#ecd9c2;
+    --blush:#F8D7DA;
+    --burgundy:#8B2635;
+    --pearl:#FFFDFB;
+    --ivory:#FAF6F0;
+    --charcoal:#3E3E3E;
+    --charcoal-soft:#6e6764;
+    --font-logo:'Cormorant Garamond', serif;
+    --font-head:'Playfair Display', serif;
+    --font-body:'Manrope', sans-serif;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    color:var(--charcoal);
+    background:var(--pearl);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--gold);color:var(--pearl);}
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001s !important; transition-duration:.001s !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- shared ---------- */
+  .container{max-width:1280px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{
+    font-family:var(--font-logo);
+    font-style:italic;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    color:var(--burgundy);
+    display:inline-flex;
+    align-items:center;
+    gap:.7rem;
+  }
+  .eyebrow::before{
+    content:'';
+    width:34px;height:1px;background:var(--burgundy);opacity:.5;display:block;
+  }
+  .section-head{
+    text-align:center;
+    margin:0 auto 4.5rem;
+    max-width:760px;
+  }
+  .section-head .eyebrow{justify-content:center;}
+  .section-head .eyebrow::before{display:none;}
+  .section-head .eyebrow::after{
+    content:'';
+    width:34px;height:1px;background:var(--burgundy);opacity:.5;display:inline-block;
+  }
+  .section-head h2{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:clamp(2.2rem,4.4vw,3.6rem);
+    line-height:1.15;
+    margin:1.1rem 0 1.2rem;
+    color:var(--charcoal);
+  }
+  .section-head p{
+    font-size:1.02rem;
+    color:var(--charcoal-soft);
+    line-height:1.8;
+    font-weight:300;
+  }
+  section{position:relative;}
+  .pad{padding:7.5rem 0;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease), transform 1s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+
+  /* buttons */
+  .btn{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:.82rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:1.05rem 2.4rem;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .45s var(--ease), background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-3px);}
+  .btn-primary{background:var(--burgundy);color:var(--pearl);box-shadow:0 14px 30px -14px rgba(139,38,53,.55);}
+  .btn-primary:hover{background:#74202e;}
+  .btn-outline{background:transparent;color:var(--pearl);border-color:rgba(255,255,255,.55);}
+  .btn-outline:hover{background:rgba(255,255,255,.14);border-color:var(--pearl);}
+  .btn-outline.dark{color:var(--burgundy);border-color:rgba(139,38,53,.35);}
+  .btn-outline.dark:hover{background:rgba(139,38,53,.06);}
+  .btn-whatsapp{background:#3E7C59;color:var(--pearl);}
+  .btn-whatsapp:hover{background:#346a4c;}
+
+  /* ================= NAVBAR ================= */
+  .navbar{
+    position:fixed;top:0;left:0;right:0;z-index:600;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.6rem 6vw;
+    transition:background .5s ease, padding .5s ease, box-shadow .5s ease, backdrop-filter .5s ease;
+  }
+  .navbar.scrolled{
+    background:rgba(255,253,251,.86);
+    backdrop-filter:blur(14px);
+    padding:1rem 6vw;
+    box-shadow:0 10px 30px -22px rgba(62,38,18,.35);
+  }
+  .logo{
+    font-family:var(--font-logo);
+    font-size:1.85rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--pearl);
+    transition:color .5s ease;
+    line-height:1;
+  }
+  .navbar.scrolled .logo{color:var(--burgundy);}
+  .logo span{display:block;font-size:.62rem;letter-spacing:.42em;font-family:var(--font-body);font-weight:600;text-transform:uppercase;margin-top:.25rem;color:var(--gold);}
+  .navbar.scrolled .logo span{color:var(--burgundy);opacity:.6;}
+
+  .nav-links{display:flex;align-items:center;gap:2.6rem;}
+  .nav-links a{
+    font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    color:var(--pearl);position:relative;padding-bottom:.4rem;
+    transition:color .5s ease;
+  }
+  .navbar.scrolled .nav-links a{color:var(--charcoal);}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold);transition:width .35s var(--ease);
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:1rem;}
+  .nav-cta .btn-primary{padding:.85rem 1.9rem;}
+
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem;z-index:601;}
+  .menu-toggle span{width:24px;height:2px;background:var(--pearl);transition:.4s ease;}
+  .navbar.scrolled .menu-toggle span{background:var(--burgundy);}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* ================= HERO ================= */
+  .hero{
+    height:100vh;min-height:640px;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--pearl);
+  }
+  .hero-slide{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transform:scale(1.08);
+    transition:opacity 2.4s ease, transform 9s linear;
+  }
+  .hero-slide.active{opacity:1;transform:scale(1);}
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(62,38,28,.42) 0%, rgba(62,38,28,.35) 45%, rgba(40,22,18,.62) 100%);
+    z-index:2;
+  }
+  .light-leak{
+    position:absolute;z-index:3;border-radius:50%;filter:blur(60px);
+    mix-blend-mode:soft-light;pointer-events:none;
+  }
+  .light-leak.l1{width:520px;height:520px;background:var(--gold);top:-160px;left:-120px;opacity:.55;animation:drift1 22s ease-in-out infinite;}
+  .light-leak.l2{width:420px;height:420px;background:var(--blush);bottom:-140px;right:-80px;opacity:.4;animation:drift2 26s ease-in-out infinite;}
+  @keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(60px,40px);}}
+  @keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-50px,-30px);}}
+
+  .petals{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;}
+  .petal{
+    position:absolute;top:-5%;
+    width:14px;height:10px;background:var(--blush);
+    border-radius:60% 0% 60% 0%;
+    opacity:.75;
+    animation:fall linear infinite;
+  }
+  @keyframes fall{
+    0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0;}
+    8%{opacity:.8;}
+    100%{transform:translateY(105vh) translateX(60px) rotate(420deg);opacity:0;}
+  }
+
+  .hero-content{position:relative;z-index:5;text-align:center;max-width:920px;padding:0 6vw;}
+  .hero-content .eyebrow{color:var(--gold-soft);justify-content:center;}
+  .hero-content .eyebrow::before{display:none;}
+  .hero-content .eyebrow::after{content:'';width:34px;height:1px;background:var(--gold-soft);opacity:.7;display:inline-block;}
+  .hero-content h1{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:clamp(2.6rem,6.4vw,5.2rem);
+    line-height:1.16;
+    margin:1.4rem 0 1.6rem;
+    text-shadow:0 8px 40px rgba(0,0,0,.25);
+  }
+  .hero-content h1 em{
+    font-family:var(--font-logo);
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold-soft);
+  }
+  .hero-content p{
+    font-size:1.08rem;font-weight:300;line-height:1.85;
+    max-width:560px;margin:0 auto 2.6rem;color:rgba(255,253,251,.92);
+  }
+  .hero-buttons{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;}
+
+  .scroll-cue{
+    position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
+    z-index:5;display:flex;flex-direction:column;align-items:center;gap:.6rem;
+    color:rgba(255,253,251,.75);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  }
+  .scroll-cue .line{width:1px;height:46px;background:rgba(255,253,251,.45);position:relative;overflow:hidden;}
+  .scroll-cue .line::after{
+    content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold);
+    animation:scrolldown 2.6s ease-in-out infinite;
+  }
+  @keyframes scrolldown{0%{top:-100%;}50%{top:0;}100%{top:100%;}}
+
+  /* ================= MARQUEE ================= */
+  .marquee-wrap{
+    background:var(--burgundy);color:var(--pearl);
+    padding:1.1rem 0;overflow:hidden;white-space:nowrap;
+  }
+  .marquee{display:inline-flex;animation:marquee 38s linear infinite;}
+  .marquee span{
+    font-family:var(--font-logo);font-style:italic;font-size:1.25rem;
+    padding:0 2.6rem;letter-spacing:.04em;color:var(--gold-soft);
+    display:inline-flex;align-items:center;gap:2.6rem;
+  }
+  .marquee span::after{content:'✦';color:var(--blush);font-size:.9rem;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ================= SERVICES ================= */
+  .services{background:var(--pearl);}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:1.6rem;
+  }
+  .service-card{
+    position:relative;border-radius:18px;overflow:hidden;
+    aspect-ratio:4/5;cursor:default;
+    box-shadow:0 18px 40px -28px rgba(62,38,18,.35);
+  }
+  .service-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);}
+  .service-card::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(190deg, rgba(62,38,28,0) 35%, rgba(46,24,20,.85) 100%);
+    transition:opacity .5s ease;
+  }
+  .service-card:hover img{transform:scale(1.08);}
+  .service-info{
+    position:absolute;left:1.5rem;right:1.5rem;bottom:1.5rem;z-index:2;color:var(--pearl);
+  }
+  .service-info .num{
+    font-family:var(--font-logo);font-style:italic;color:var(--gold-soft);
+    font-size:.85rem;letter-spacing:.18em;
+  }
+  .service-info h3{
+    font-family:var(--font-head);font-size:1.35rem;font-weight:600;margin-top:.35rem;
+  }
+  .service-info p{
+    font-size:.84rem;font-weight:300;color:rgba(255,253,251,.82);
+    margin-top:.5rem;max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .5s var(--ease), opacity .5s ease, margin-top .5s ease;
+  }
+  .service-card:hover .service-info p{max-height:80px;opacity:1;margin-top:.65rem;}
+
+  /* ================= LOVE STORIES — film strip signature ================= */
+  .stories{background:var(--ivory);}
+  .filmstrip-rail{position:relative;}
+  .filmstrip-rail .perf{
+    height:22px;width:100%;
+    background-image:radial-gradient(circle, var(--pearl) 6px, transparent 6.5px);
+    background-size:42px 22px;background-repeat:repeat-x;background-position:14px center;
+    background-color:var(--charcoal);
+  }
+  .filmstrip-track{
+    background:var(--charcoal);
+    display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .filmstrip-track::-webkit-scrollbar{display:none;}
+  .frame{
+    flex:0 0 min(86vw,560px);scroll-snap-align:start;
+    border-left:1px solid rgba(255,253,251,.08);
+    border-right:1px solid rgba(255,253,251,.08);
+    padding:2.4rem 2.4rem 2.8rem;
+    color:var(--pearl);
+  }
+  .frame-media{
+    border-radius:10px;overflow:hidden;aspect-ratio:16/10;margin-bottom:1.6rem;
+    position:relative;
+  }
+  .frame-media img{width:100%;height:100%;object-fit:cover;}
+  .frame-media .play{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(20,12,10,.18);
+    transition:background .4s ease;
+  }
+  .frame:hover .frame-media .play{background:rgba(20,12,10,.35);}
+  .play-circle{
+    width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,253,251,.7);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .45s var(--ease), background .35s ease;
+    backdrop-filter:blur(2px);
+  }
+  .frame:hover .play-circle{transform:scale(1.08);background:rgba(255,253,251,.12);}
+  .play-circle svg{width:16px;height:16px;fill:var(--pearl);}
+  .frame-tag{font-family:var(--font-logo);font-style:italic;color:var(--gold-soft);letter-spacing:.18em;font-size:.78rem;text-transform:uppercase;}
+  .frame h3{font-family:var(--font-head);font-size:1.7rem;font-weight:600;margin:.55rem 0 .35rem;}
+  .frame .venue{font-size:.82rem;color:var(--gold-soft);letter-spacing:.06em;margin-bottom:.9rem;}
+  .frame p.copy{font-size:.92rem;line-height:1.8;color:rgba(255,253,251,.78);font-weight:300;margin-bottom:1.2rem;}
+  .frame-meta{display:flex;gap:1.6rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,253,251,.55);}
+  .frame-meta b{color:var(--gold-soft);display:block;font-family:var(--font-head);font-size:1.05rem;font-weight:600;letter-spacing:0;text-transform:none;margin-bottom:.15rem;}
+  .scrollhint{
+    text-align:center;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--charcoal-soft);padding-top:1.6rem;
+  }
+
+  /* ================= CINEMATIC FILMS ================= */
+  .films-section{background:var(--charcoal);color:var(--pearl);}
+  .films-section .section-head .eyebrow,
+  .films-section .section-head .eyebrow::after{color:var(--gold-soft);}
+  .films-section .section-head h2{color:var(--pearl);}
+  .films-section .section-head p{color:rgba(255,253,251,.65);}
+  .films-row{display:flex;gap:1.4rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:none;}
+  .films-row::-webkit-scrollbar{display:none;}
+  .film-card{
+    flex:0 0 320px;border-radius:14px;overflow:hidden;position:relative;
+    aspect-ratio:16/10;cursor:default;
+  }
+  .film-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease), filter .6s ease;}
+  .film-card:hover img{transform:scale(1.1);filter:brightness(.65);}
+  .film-card::after{content:'';position:absolute;inset:0;background:linear-gradient(190deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.8) 100%);}
+  .film-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.3rem;z-index:2;}
+  .film-overlay .cat{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:.35rem;}
+  .film-overlay h4{font-family:var(--font-head);font-size:1.18rem;font-weight:600;}
+  .film-play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.7);
+    width:54px;height:54px;border-radius:50%;background:rgba(255,253,251,.14);
+    border:1px solid rgba(255,253,251,.5);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .4s ease, transform .45s var(--ease);z-index:2;
+  }
+  .film-card:hover .film-play{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .film-play svg{width:14px;height:14px;fill:var(--pearl);}
+
+  /* ================= PORTFOLIO / MASONRY ================= */
+  .portfolio{background:var(--pearl);}
+  .masonry{
+    column-count:4;column-gap:1.1rem;
+  }
+  @media(max-width:1100px){.masonry{column-count:3;}}
+  @media(max-width:760px){.masonry{column-count:2;}}
+  .masonry-item{
+    break-inside:avoid;margin-bottom:1.1rem;border-radius:14px;overflow:hidden;
+    position:relative;cursor:pointer;
+  }
+  .masonry-item img{width:100%;display:block;transition:transform 1s var(--ease);}
+  .masonry-item::after{
+    content:'';position:absolute;inset:0;background:rgba(62,38,28,0);transition:background .4s ease;
+  }
+  .masonry-item:hover::after{background:rgba(62,38,28,.18);}
+  .masonry-item:hover img{transform:scale(1.05);}
+  .masonry-item .zoom-icon{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);
+    width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,253,251,.85);
+    display:flex;align-items:center;justify-content:center;color:var(--pearl);
+    opacity:0;transition:opacity .35s ease, transform .4s var(--ease);
+  }
+  .masonry-item:hover .zoom-icon{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .masonry-item .zoom-icon svg{width:16px;height:16px;stroke:var(--pearl);fill:none;stroke-width:2;}
+
+  /* lightbox */
+  .lightbox{
+    position:fixed;inset:0;z-index:1000;background:rgba(28,16,14,.92);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;transition:opacity .4s ease, visibility .4s ease;
+  }
+  .lightbox.open{opacity:1;visibility:visible;}
+  .lightbox img{max-width:88vw;max-height:82vh;border-radius:8px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);}
+  .lightbox-close, .lightbox-nav{
+    position:absolute;background:rgba(255,253,251,.08);border:1px solid rgba(255,253,251,.3);
+    color:var(--pearl);border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:background .3s ease;
+  }
+  .lightbox-close:hover, .lightbox-nav:hover{background:rgba(255,253,251,.18);}
+  .lightbox-close{top:2rem;right:2rem;}
+  .lightbox-nav.prev{left:1.2rem;top:50%;transform:translateY(-50%);}
+  .lightbox-nav.next{right:1.2rem;top:50%;transform:translateY(-50%);}
+  .lightbox-nav svg, .lightbox-close svg{width:16px;height:16px;stroke:var(--pearl);fill:none;stroke-width:2;}
+  @media(max-width:640px){.lightbox-nav{width:38px;height:38px;}.lightbox-close{top:1rem;right:1rem;}}
+
+  /* ================= WHY US ================= */
+  .whyus{background:var(--ivory);}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem;}
+  .why-card{
+    background:var(--pearl);border-radius:16px;padding:2.4rem 2rem;
+    border:1px solid rgba(139,38,53,.07);
+    transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s ease;
+  }
+  .why-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px -30px rgba(62,38,18,.35);border-color:rgba(221,184,146,.5);}
+  .why-icon{
+    width:50px;height:50px;border-radius:50%;background:var(--blush);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;
+    transition:background .5s ease, transform .5s var(--ease);
+  }
+  .why-card:hover .why-icon{background:var(--gold);transform:rotate(8deg);}
+  .why-icon svg{width:22px;height:22px;stroke:var(--burgundy);fill:none;stroke-width:1.6;}
+  .why-card h4{font-family:var(--font-head);font-size:1.18rem;font-weight:600;margin-bottom:.6rem;}
+  .why-card p{font-size:.88rem;color:var(--charcoal-soft);line-height:1.75;font-weight:300;}
+
+  /* ================= TESTIMONIALS ================= */
+  .testimonials{
+    background:linear-gradient(180deg, var(--pearl) 0%, var(--blush) 100%);
+  }
+  .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;}
+  .test-card{
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(255,255,255,.65);
+    border-radius:18px;padding:2.2rem;
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 50px -30px rgba(139,38,53,.25);
+    transition:transform .5s var(--ease);
+  }
+  .test-card:hover{transform:translateY(-6px);}
+  .stars{color:var(--gold);font-size:.95rem;letter-spacing:.18em;margin-bottom:1.1rem;}
+  .test-card p.quote{font-size:.95rem;line-height:1.85;color:var(--charcoal);font-weight:300;margin-bottom:1.4rem;font-style:italic;font-family:var(--font-logo);}
+  .test-who{display:flex;align-items:center;gap:.9rem;}
+  .test-who img{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+  .test-who .name{font-family:var(--font-head);font-weight:600;font-size:.95rem;}
+  .test-who .role{font-size:.75rem;color:var(--charcoal-soft);letter-spacing:.06em;}
+
+  /* ================= COUNTERS ================= */
+  .counters{
+    background:var(--burgundy);color:var(--pearl);
+    background-image:radial-gradient(circle at 20% 30%, rgba(221,184,146,.18), transparent 45%), radial-gradient(circle at 85% 70%, rgba(248,215,218,.12), transparent 45%);
+  }
+  .counters-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2.4rem;text-align:center;}
+  .counter-num{
+    font-family:var(--font-head);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);
+    color:var(--gold-soft);line-height:1;
+  }
+  .counter-label{margin-top:.7rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,253,251,.78);}
+  .counters-tagline{
+    text-align:center;margin-top:3.6rem;font-family:var(--font-logo);font-style:italic;
+    font-size:1.3rem;color:var(--gold-soft);letter-spacing:.06em;
+  }
+
+  /* ================= INSTAGRAM ================= */
+  .instagram{background:var(--pearl);}
+  .insta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem;}
+  .insta-item{position:relative;aspect-ratio:1/1;border-radius:12px;overflow:hidden;}
+  .insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+  .insta-item:hover img{transform:scale(1.08);}
+  .insta-overlay{
+    position:absolute;inset:0;background:rgba(62,38,28,0);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--pearl);font-family:var(--font-logo);font-style:italic;font-size:1rem;
+    opacity:0;transition:opacity .35s ease, background .35s ease;gap:.5rem;
+  }
+  .insta-item:hover .insta-overlay{opacity:1;background:rgba(62,38,28,.4);}
+  .insta-cta{text-align:center;margin-top:2.6rem;}
+
+  /* ================= ABOUT ================= */
+  .about{background:var(--ivory);}
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center;}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:2.4rem;}}
+  .about-media{position:relative;}
+  .about-media img{border-radius:18px;width:100%;aspect-ratio:4/5;object-fit:cover;}
+  .about-media .badge{
+    position:absolute;bottom:-1.6rem;right:-1.2rem;background:var(--pearl);
+    border:1px solid rgba(221,184,146,.4);
+    border-radius:16px;padding:1.3rem 1.7rem;text-align:center;
+    box-shadow:0 22px 50px -28px rgba(62,38,18,.4);
+  }
+  @media(max-width:520px){.about-media .badge{right:.6rem;bottom:-1.2rem;padding:1rem 1.3rem;}}
+  .about-media .badge .n{font-family:var(--font-head);font-weight:700;font-size:1.9rem;color:var(--burgundy);}
+  .about-media .badge .l{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal-soft);}
+  .about-text .eyebrow::after{content:'';width:34px;height:1px;background:var(--burgundy);opacity:.5;display:inline-block;}
+  .about-text h2{font-family:var(--font-head);font-weight:600;font-size:clamp(2rem,4vw,3rem);margin:1.1rem 0 1.4rem;line-height:1.18;}
+  .about-text p{font-size:.98rem;line-height:1.9;color:var(--charcoal-soft);font-weight:300;margin-bottom:1.1rem;}
+  .about-text p:last-of-type{margin-bottom:1.8rem;}
+  .about-values{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:1rem;}
+  .about-values div{font-family:var(--font-logo);font-style:italic;font-size:1.05rem;color:var(--burgundy);}
+
+  /* ================= LOCATION ================= */
+  .location{background:var(--charcoal);color:var(--pearl);}
+  .location .section-head .eyebrow, .location .section-head .eyebrow::after{color:var(--gold-soft);}
+  .location .section-head h2{color:var(--pearl);}
+  .location .section-head p{color:rgba(255,253,251,.65);}
+  .loc-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:2.6rem;}
+  @media(max-width:900px){.loc-grid{grid-template-columns:1fr;}}
+  .loc-card{
+    background:rgba(255,253,251,.04);border:1px solid rgba(255,253,251,.1);
+    border-radius:18px;padding:2.6rem;
+  }
+  .loc-card h3{font-family:var(--font-head);font-size:1.4rem;font-weight:600;margin-bottom:1.2rem;}
+  .loc-card address{font-style:normal;line-height:2;color:rgba(255,253,251,.78);font-weight:300;margin-bottom:2rem;}
+  .loc-card address b{color:var(--gold-soft);font-family:var(--font-head);display:block;margin-bottom:.4rem;font-size:1.05rem;}
+  .loc-meta{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;}
+  .loc-meta .row{display:flex;justify-content:space-between;font-size:.85rem;border-bottom:1px solid rgba(255,253,251,.08);padding-bottom:.7rem;color:rgba(255,253,251,.7);}
+  .loc-meta .row b{color:var(--pearl);font-weight:600;}
+  .map-frame{border-radius:18px;overflow:hidden;border:1px solid rgba(255,253,251,.1);min-height:380px;}
+  .map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.15) contrast(1.05);}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--charcoal);color:rgba(255,253,251,.6);border-top:1px solid rgba(255,253,251,.08);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:3rem;padding:5rem 0 3rem;}
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+  .footer-grid .logo{color:var(--pearl);margin-bottom:1rem;display:inline-block;}
+  .footer-grid .logo span{color:var(--gold-soft);}
+  .footer-grid p{font-size:.88rem;line-height:1.85;font-weight:300;max-width:280px;}
+  .footer-grid h5{font-family:var(--font-head);color:var(--pearl);font-weight:600;font-size:1rem;margin-bottom:1.2rem;letter-spacing:.04em;}
+  .footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:.75rem;font-size:.88rem;font-weight:300;}
+  .footer-grid ul a{transition:color .3s ease;}
+  .footer-grid ul a:hover{color:var(--gold-soft);}
+  .footer-social{display:flex;gap:.8rem;margin-top:1.2rem;}
+  .footer-social a{
+    width:38px;height:38px;border:1px solid rgba(255,253,251,.18);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .3s ease, background .3s ease;
+  }
+  .footer-social a:hover{border-color:var(--gold-soft);background:rgba(221,184,146,.08);}
+  .footer-social svg{width:16px;height:16px;stroke:var(--pearl);fill:none;stroke-width:1.6;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,253,251,.08);padding:1.6rem 0;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    font-size:.78rem;letter-spacing:.04em;
+  }
+
+  /* ================= FLOATING WHATSAPP ================= */
+  .whatsapp-float{
+    position:fixed;bottom:1.8rem;right:1.8rem;z-index:500;
+    width:60px;height:60px;border-radius:50%;background:#3E7C59;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 16px 36px -16px rgba(62,124,89,.6);
+    transition:transform .4s var(--ease);
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+  .whatsapp-float svg{width:28px;height:28px;fill:var(--pearl);}
+  .whatsapp-float::before{
+    content:'';position:absolute;inset:0;border-radius:50%;background:#3E7C59;
+    animation:pulse 2.4s ease-out infinite;z-index:-1;
+  }
+  @keyframes pulse{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.9);opacity:0;}}
+
+  /* ================= MOBILE BOTTOM NAV ================= */
+  .mobile-nav{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:550;
+    background:rgba(255,253,251,.96);backdrop-filter:blur(14px);
+    border-top:1px solid rgba(139,38,53,.08);
+    box-shadow:0 -10px 30px -20px rgba(62,38,18,.3);
+    padding:.6rem 0 max(.6rem, env(safe-area-inset-bottom));
+  }
+  .mobile-nav ul{display:flex;justify-content:space-around;list-style:none;}
+  .mobile-nav li a{
+    display:flex;flex-direction:column;align-items:center;gap:.28rem;
+    font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--charcoal-soft);
+    font-weight:600;padding:.4rem .6rem;border-radius:12px;transition:color .3s ease, background .3s ease;
+  }
+  .mobile-nav li a.active, .mobile-nav li a:hover{color:var(--burgundy);background:var(--blush);}
+  .mobile-nav li a svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;}
+  .mobile-nav li a.wa svg{fill:#3E7C59;stroke:none;}
+
+  /* ================= RESPONSIVE NAV ================= */
+  @media(max-width:920px){
+    .nav-links{
+      position:fixed;inset:0;background:var(--pearl);
+      flex-direction:column;justify-content:center;align-items:center;gap:2.4rem;
+      transform:translateY(-100%);transition:transform .5s var(--ease);
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-links a{color:var(--burgundy) !important;font-size:1.1rem;}
+    .nav-cta{display:none;}
+    .menu-toggle{display:flex;}
+    .mobile-nav{display:block;}
+    body{padding-bottom:64px;}
+    .filmstrip-rail .perf{background-size:30px 18px;height:18px;}
+  }
+
+  @media(max-width:600px){
+    .pad{padding:4.5rem 0;}
+    .section-head{margin-bottom:3rem;}
+    .hero-content p{font-size:.96rem;}
+    .frame{flex:0 0 92vw;padding:1.6rem 1.4rem 2rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <a href="#home" class="logo">RGMovies<span>Production · Wedding Films</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#stories">Love Stories</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">Studio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-cta">
+    <a href="#contact" class="btn btn-primary">Book Consultation</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-slide active" style="background-image:url('https://picsum.photos/seed/wedding-bride/1600/1000')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/wedding-haldi/1600/1000')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/wedding-mehndi/1600/1000')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/wedding-couple/1600/1000')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/wedding-decor/1600/1000')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/wedding-rings/1600/1000')"></div>
+
+  <div class="light-leak l1"></div>
+  <div class="light-leak l2"></div>
+  <div class="petals" id="petals"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Rohini · Delhi — Since 2015</span>
+    <h1>Every Wedding Has A Story.<br><em>We Make It Eternal.</em></h1>
+    <p>Award-worthy wedding photography and cinematic films that preserve your most precious memories forever.</p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+      <a href="#contact" class="btn btn-primary">Book Consultation</a>
+      <a href="https://wa.me/919999999999?text=Hello%20RGMovies%20Production%2C%0AI%20would%20like%20information%20about%20wedding%20photography%2C%20cinematic%20films%2C%20pre-wedding%20shoots%2C%20and%20wedding%20packages." target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Us</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Wedding Photography</span><span>Cinematic Films</span><span>Pre-Wedding Shoots</span><span>Destination Weddings</span><span>Luxury Albums</span><span>Drone Cinematography</span>
+    <span>Wedding Photography</span><span>Cinematic Films</span><span>Pre-Wedding Shoots</span><span>Destination Weddings</span><span>Luxury Albums</span><span>Drone Cinematography</span>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section class="services pad" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Crafted For Every Chapter Of Your Story</h2>
+      <p>From the first promise to the final dance, every moment is documented with intention, artistry and an eye for the details that make your day uniquely yours.</p>
+    </div>
+
+    <div class="services-grid reveal-stagger">
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-wedding-photo/600/750" alt="Wedding photography couple portrait" loading="lazy">
+        <div class="service-info">
+          <span class="num">01</span>
+          <h3>Wedding Photography</h3>
+          <p>Full-day candid and traditional coverage that captures every emotion, ritual and stolen glance.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-pre-wedding/600/750" alt="Pre-wedding couple shoot" loading="lazy">
+        <div class="service-info">
+          <span class="num">02</span>
+          <h3>Pre-Wedding Shoots</h3>
+          <p>Romantic, editorial sessions in locations that reflect your story before the big day arrives.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-cinematic-film/600/750" alt="Cinematic wedding film scene" loading="lazy">
+        <div class="service-info">
+          <span class="num">03</span>
+          <h3>Cinematic Wedding Films</h3>
+          <p>Documentary-style films with sound design and colour grading worthy of the big screen.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-engagement/600/750" alt="Engagement shoot couple" loading="lazy">
+        <div class="service-info">
+          <span class="num">04</span>
+          <h3>Engagement Shoots</h3>
+          <p>Joyful, relaxed sessions that mark the beginning of your forever, framed beautifully.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-haldi/600/750" alt="Haldi ceremony coverage" loading="lazy">
+        <div class="service-info">
+          <span class="num">05</span>
+          <h3>Haldi Coverage</h3>
+          <p>Vibrant colours, laughter and tradition — captured with warmth and energy.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-mehndi/600/750" alt="Mehndi ceremony details" loading="lazy">
+        <div class="service-info">
+          <span class="num">06</span>
+          <h3>Mehndi Coverage</h3>
+          <p>Intricate details, henna art and intimate family moments documented beautifully.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-destination/600/750" alt="Destination wedding venue" loading="lazy">
+        <div class="service-info">
+          <span class="num">07</span>
+          <h3>Destination Weddings</h3>
+          <p>We travel with you — to palaces, beaches and hillsides — to tell your story anywhere.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-drone/600/750" alt="Drone cinematography of wedding venue" loading="lazy">
+        <div class="service-info">
+          <span class="num">08</span>
+          <h3>Drone Cinematography</h3>
+          <p>Sweeping aerial perspectives that capture the grandeur of your venue and celebration.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-couple-portrait/600/750" alt="Couple portrait session" loading="lazy">
+        <div class="service-info">
+          <span class="num">09</span>
+          <h3>Couple Portraits</h3>
+          <p>Timeless portraits with thoughtful direction, light and composition.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/svc-albums/600/750" alt="Luxury wedding album" loading="lazy">
+        <div class="service-info">
+          <span class="num">10</span>
+          <h3>Luxury Albums</h3>
+          <p>Hand-finished, archival albums designed to be passed down for generations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED LOVE STORIES (signature film strip) ================= -->
+<section class="stories pad" id="stories">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured Love Stories</span>
+      <h2>Real Weddings, Real Emotions</h2>
+      <p>Each celebration we cover becomes a film of its own — a reel of moments worth replaying forever. Scroll through a few of our favourite frames.</p>
+    </div>
+  </div>
+
+  <div class="filmstrip-rail reveal">
+    <div class="perf"></div>
+    <div class="filmstrip-track">
+
+      <article class="frame">
+        <div class="frame-media">
+          <img src="https://picsum.photos/seed/story-ananya-vikram/640/420" alt="Ananya and Vikram wedding moment" loading="lazy">
+          <div class="play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <span class="frame-tag">Royal Rajasthani Affair</span>
+        <h3>Ananya &amp; Vikram</h3>
+        <div class="venue">Lake Palace, Udaipur</div>
+        <p class="copy">A three-day celebration of colour, music and family — from a sunrise haldi by the lake to a candle-lit pheras under century-old domes.</p>
+        <div class="frame-meta">
+          <div><b>3 Days</b>Coverage</div>
+          <div><b>1,200+</b>Frames Delivered</div>
+          <div><b>12 Min</b>Wedding Film</div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-media">
+          <img src="https://picsum.photos/seed/story-simran-arjun/640/420" alt="Simran and Arjun wedding moment" loading="lazy">
+          <div class="play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <span class="frame-tag">Sunset Vows In Goa</span>
+        <h3>Simran &amp; Arjun</h3>
+        <div class="venue">Beachfront Resort, Goa</div>
+        <p class="copy">Bare feet on warm sand, golden hour light and a barefoot ceremony as the tide rolled in — an intimate destination wedding for 80 guests.</p>
+        <div class="frame-meta">
+          <div><b>2 Days</b>Coverage</div>
+          <div><b>900+</b>Frames Delivered</div>
+          <div><b>8 Min</b>Wedding Film</div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-media">
+          <img src="https://picsum.photos/seed/story-priya-rohan/640/420" alt="Priya and Rohan wedding moment" loading="lazy">
+          <div class="play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <span class="frame-tag">Intimate Delhi Celebration</span>
+        <h3>Priya &amp; Rohan</h3>
+        <div class="venue">ITC Maurya, New Delhi</div>
+        <p class="copy">A close-knit ceremony of 50, rich in tradition — from a tearful kanyadaan to a joyful sangeet that lasted till 2am.</p>
+        <div class="frame-meta">
+          <div><b>1 Day</b>Coverage</div>
+          <div><b>600+</b>Frames Delivered</div>
+          <div><b>6 Min</b>Wedding Film</div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-media">
+          <img src="https://picsum.photos/seed/story-tanya-rohan/640/420" alt="Tanya and Rohan wedding moment" loading="lazy">
+          <div class="play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <span class="frame-tag">A Punjabi Garden Wedding</span>
+        <h3>Tanya &amp; Karan</h3>
+        <div class="venue">Farmhouse, Chhatarpur, Delhi</div>
+        <p class="copy">Marigold archways, a dhol-led baraat and an evening of laughter — captured across two cameras and one drone, start to finish.</p>
+        <div class="frame-meta">
+          <div><b>1 Day</b>Coverage</div>
+          <div><b>700+</b>Frames Delivered</div>
+          <div><b>7 Min</b>Wedding Film</div>
+        </div>
+      </article>
+
+    </div>
+    <div class="perf"></div>
+  </div>
+  <p class="scrollhint">Swipe to explore more stories →</p>
+</section>
+
+<!-- ================= CINEMATIC FILMS ================= -->
+<section class="films-section pad" id="films">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Film Library</span>
+      <h2>Cinematic Wedding Films</h2>
+      <p>From sweeping drone reveals to intimate love-story teasers — every film is edited with pacing, music and emotion that does justice to the day.</p>
+    </div>
+
+    <div class="films-row reveal-stagger">
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-wedding-films/500/320" alt="Wedding film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Full Length · 18 min</div><h4>Wedding Films</h4></div>
+      </div>
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-pre-wedding/500/320" alt="Pre-wedding film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Romantic · 4 min</div><h4>Pre-Wedding Films</h4></div>
+      </div>
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-love-story/500/320" alt="Love story film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Documentary · 6 min</div><h4>Love Stories</h4></div>
+      </div>
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-highlights/500/320" alt="Wedding highlight film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Highlight Reel · 3 min</div><h4>Wedding Highlights</h4></div>
+      </div>
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-teaser/500/320" alt="Wedding teaser film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Teaser · 60 sec</div><h4>Teaser Films</h4></div>
+      </div>
+      <div class="film-card">
+        <img src="https://picsum.photos/seed/film-drone/500/320" alt="Drone film thumbnail" loading="lazy">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-overlay"><div class="cat">Aerial · 2 min</div><h4>Drone Films</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="portfolio pad" id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Gallery</span>
+      <h2>A Closer Look At Our Work</h2>
+      <p>Portraits, candid emotions, decor details and grand venues — explore the full range of moments we love to capture. Tap any image for a closer view.</p>
+    </div>
+
+    <div class="masonry" id="masonry">
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-1/1200/1500"><img src="https://picsum.photos/seed/port-1/500/650" alt="Bride portrait" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-2/1200/900"><img src="https://picsum.photos/seed/port-2/500/380" alt="Wedding decor" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-3/1200/1600"><img src="https://picsum.photos/seed/port-3/500/700" alt="Couple candid moment" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-4/1200/1000"><img src="https://picsum.photos/seed/port-4/500/420" alt="Wedding ceremony" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-5/1200/1500"><img src="https://picsum.photos/seed/port-5/500/650" alt="Bride details" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-6/1200/900"><img src="https://picsum.photos/seed/port-6/500/380" alt="Family moment" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-7/1200/1600"><img src="https://picsum.photos/seed/port-7/500/700" alt="Luxury wedding venue" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-8/1200/1000"><img src="https://picsum.photos/seed/port-8/500/420" alt="Wedding emotions" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-9/1200/1500"><img src="https://picsum.photos/seed/port-9/500/650" alt="Wedding rings detail" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-10/1200/900"><img src="https://picsum.photos/seed/port-10/500/380" alt="Groom portrait" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-11/1200/1600"><img src="https://picsum.photos/seed/port-11/500/700" alt="Reception decor" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+      <div class="masonry-item" data-full="https://picsum.photos/seed/port-12/1200/1000"><img src="https://picsum.photos/seed/port-12/500/420" alt="Couple portrait golden hour" loading="lazy"><div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="whyus pad" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Couples Choose Us</span>
+      <h2>The RGMovies Difference</h2>
+      <p>We blend a documentary eye for natural emotion with the polish of a luxury production house — so every detail of your day is honoured.</p>
+    </div>
+
+    <div class="why-grid reveal-stagger">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21l7.78-7.55 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Natural Emotions</h4>
+        <p>We stay unobtrusive, so laughter, tears and stolen glances happen exactly as they're meant to.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 9.5 22 6v12l-6-3.5"/></svg></div>
+        <h4>Cinematic Storytelling</h4>
+        <p>Every film follows a narrative arc — built around your story, not a template.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Luxury Editing</h4>
+        <p>Colour grading and retouching finished to a cinema-grade standard, frame by frame.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h0M14 21v-1a5 5 0 0 0-5-5"/><path d="M22 21v-2a5 5 0 0 0-4-4.9"/></svg></div>
+        <h4>Professional Team</h4>
+        <p>A coordinated crew of photographers, cinematographers and editors for every event.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M3 3l3 3M21 3l-3 3"/></svg></div>
+        <h4>Fast Delivery</h4>
+        <p>Sneak peeks within 48 hours and full galleries delivered well ahead of schedule.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h4>Creative Direction</h4>
+        <p>From shot lists to lighting and posing — every detail planned with intention.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>Premium Albums</h4>
+        <p>Hand-bound, archival-quality albums designed and curated by our editing team.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21l7.78-7.55 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Personalised Experience</h4>
+        <p>From your first call to final delivery, a dedicated planner stays by your side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials pad" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kind Words</span>
+      <h2>Stories From Our Couples</h2>
+      <p>★★★★★ rated by 14+ couples and families who trusted us with their most important day.</p>
+    </div>
+
+    <div class="test-grid reveal-stagger">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"They became part of our family for three days. Watching our wedding film still brings tears — they captured things we didn't even realise were happening."</p>
+        <div class="test-who">
+          <img src="https://picsum.photos/seed/avatar-ananya/100/100" alt="Ananya">
+          <div><div class="name">Ananya &amp; Vikram</div><div class="role">Udaipur Wedding</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"From the pre-wedding shoot to the final album, every step felt thoughtful and personal. The team understood exactly the vibe we wanted."</p>
+        <div class="test-who">
+          <img src="https://picsum.photos/seed/avatar-simran/100/100" alt="Simran">
+          <div><div class="name">Simran Kaur</div><div class="role">Goa Beach Wedding</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"My parents don't usually like being photographed, but the team made everyone feel so comfortable. The candid shots of our family are priceless."</p>
+        <div class="test-who">
+          <img src="https://picsum.photos/seed/avatar-priya/100/100" alt="Priya">
+          <div><div class="name">Priya Mehra</div><div class="role">Delhi Wedding</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The drone shots of our farmhouse venue at sunset were breathtaking. Delivery was fast and the album quality is honestly museum-worthy."</p>
+        <div class="test-who">
+          <img src="https://picsum.photos/seed/avatar-tanya/100/100" alt="Tanya">
+          <div><div class="name">Tanya &amp; Karan</div><div class="role">Chhatarpur Wedding</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNTERS ================= -->
+<section class="counters pad" id="counters">
+  <div class="container">
+    <div class="counters-grid reveal-stagger">
+      <div>
+        <div class="counter-num" data-target="500" data-suffix="+">0</div>
+        <div class="counter-label">Weddings Captured</div>
+      </div>
+      <div>
+        <div class="counter-num" data-target="1000" data-suffix="+">0</div>
+        <div class="counter-label">Happy Clients</div>
+      </div>
+      <div>
+        <div class="counter-num" data-target="10" data-suffix="+">0</div>
+        <div class="counter-label">Years Of Experience</div>
+      </div>
+      <div>
+        <div class="counter-num" data-target="14" data-suffix="+">0</div>
+        <div class="counter-label">Five-Star Reviews</div>
+      </div>
+    </div>
+    <p class="counters-tagline reveal">Millions of memories, preserved forever.</p>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section class="instagram pad" id="instagram">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Follow Along</span>
+      <h2>@rgmoviesproduction</h2>
+      <p>A daily feed of behind-the-scenes moments, fresh edits and the celebrations we're lucky enough to be part of.</p>
+    </div>
+
+    <div class="insta-grid reveal-stagger">
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-1/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-2/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-3/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-4/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-5/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+      <div class="insta-item"><img src="https://picsum.photos/seed/insta-6/400/400" alt="Instagram wedding photo" loading="lazy"><div class="insta-overlay">♥ View</div></div>
+    </div>
+    <div class="insta-cta"><a href="#" target="_blank" rel="noopener" class="btn btn-outline dark">Follow on Instagram</a></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <img src="https://picsum.photos/seed/about-studio-team/700/900" alt="RGMovies Production team at work">
+        <div class="badge">
+          <div class="n">10+</div>
+          <div class="l">Years of Storytelling</div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">The Studio</span>
+        <h2>A Family Of Storytellers, Rooted In Rohini</h2>
+        <p>RGMovies Production began with a simple belief: that a wedding day, however big or small, deserves to be remembered exactly as it felt. What started as a small team covering local celebrations across Delhi has grown into a full-service studio trusted with weddings across India — without ever losing that personal touch.</p>
+        <p>We grew up around Indian weddings — the rituals, the chaos, the joy, the tears at a kanyadaan — and that familiarity is woven into how we shoot. We're not just operating cameras; we know when to step back and when to lean in, because we understand what these moments mean to your family.</p>
+        <div class="about-values">
+          <div>Passion</div>
+          <div>Tradition</div>
+          <div>Emotion</div>
+          <div>Craft</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCATION / CONTACT ================= -->
+<section class="location pad" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit The Studio</span>
+      <h2>Plan Your Wedding With Us</h2>
+      <p>Drop by our Rohini studio for a consultation, or reach out directly — we'd love to hear about your celebration.</p>
+    </div>
+
+    <div class="loc-grid reveal">
+      <div class="loc-card">
+        <h3>RGMovies Production</h3>
+        <address>
+          <b>Studio Address</b>
+          B-35, Rajiv Nagar Phase 2<br>
+          Sector 39, Rohini<br>
+          Delhi 110086, India
+        </address>
+        <div class="loc-meta">
+          <div class="row"><span>Studio Hours</span><b>10 AM – 8 PM, Mon–Sun</b></div>
+          <div class="row"><span>Consultations</span><b>By Appointment</b></div>
+          <div class="row"><span>Response Time</span><b>Within 24 Hours</b></div>
+        </div>
+        <div class="hero-buttons" style="justify-content:flex-start;">
+          <a href="https://maps.app.goo.gl/mgpaz57pvS8sMwpx8" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+          <a href="https://wa.me/919999999999?text=Hello%20RGMovies%20Production%2C%0AI%20would%20like%20information%20about%20wedding%20photography%2C%20cinematic%20films%2C%20pre-wedding%20shoots%2C%20and%20wedding%20packages." target="_blank" rel="noopener" class="btn btn-whatsapp">Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=B-35+Rajiv+Nagar+Phase+2+Sector+39+Rohini+Delhi+110086&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="RGMovies Production location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo">RGMovies<span>Production</span></a>
+        <p>We don't just capture weddings — we preserve emotions forever. A premium wedding photography and filmmaking studio based in Rohini, Delhi.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 8h2V5h-2a4 4 0 0 0-4 4v2H9v3h2v6h3v-6h2.5l.5-3H14V9a1 1 0 0 1 1-1z"/></svg></a>
+          <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-4.5-7.79M21 12l-7-2 2 7-2-2-4 2 2-4-2-2 7 2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#stories">Love Stories</a></li>
+          <li><a href="#films">Films</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get In Touch</h5>
+        <ul>
+          <li>B-35, Rajiv Nagar Phase 2, Sector 39, Rohini, Delhi 110086</li>
+          <li>+91 99999 99999</li>
+          <li>hello@rgmoviesproduction.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RGMovies Production. All rights reserved.</span>
+      <span>Crafted with love, in Rohini, Delhi.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+<a class="whatsapp-float" href="https://wa.me/919999999999?text=Hello%20RGMovies%20Production%2C%0AI%20would%20like%20information%20about%20wedding%20photography%2C%20cinematic%20films%2C%20pre-wedding%20shoots%2C%20and%20wedding%20packages." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.5 0 .14 5.36.14 11.9c0 2.1.55 4.07 1.6 5.83L0 24l6.45-1.7a11.85 11.85 0 0 0 5.6 1.43h.01c6.54 0 11.9-5.36 11.9-11.9 0-3.18-1.24-6.16-3.44-8.35zM12.05 21.5h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.21-3.63.96.97-3.54-.23-.36a9.6 9.6 0 0 1-1.47-5.11c0-5.3 4.32-9.62 9.63-9.62 2.57 0 4.98 1 6.8 2.82a9.56 9.56 0 0 1 2.82 6.8c0 5.31-4.32 9.6-9.63 9.6zm5.27-7.2c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.3-1.42-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.04-.5-.1-.14-.6-1.45-.82-1.98-.22-.53-.45-.46-.62-.47h-.53c-.17 0-.45.07-.69.34-.24.27-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.78 2.72 4.32 3.71 2.55 1 2.55.67 3.01.63.46-.05 1.48-.6 1.69-1.19.21-.6.21-1.1.14-1.21-.07-.1-.27-.17-.56-.31z"/></svg>
+</a>
+
+<!-- ================= MOBILE BOTTOM NAV ================= -->
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#home" class="active"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</a></li>
+    <li><a href="#stories"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21l7.78-7.55 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Weddings</a></li>
+    <li><a href="#films"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 9.5 22 6v12l-6-3.5"/></svg>Films</a></li>
+    <li><a href="#contact"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.18 4.18 2 2 0 0 1 4.16 2h3a2 2 0 0 1 2 1.72c.13.97.36 1.92.68 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.25-1.25a2 2 0 0 1 2.11-.45c.91.32 1.86.55 2.83.68A2 2 0 0 1 22 16.92z"/></svg>Contact</a></li>
+    <li><a href="https://wa.me/919999999999" target="_blank" rel="noopener" class="wa"><svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.5 0 .14 5.36.14 11.9c0 2.1.55 4.07 1.6 5.83L0 24l6.45-1.7a11.85 11.85 0 0 0 5.6 1.43h.01c6.54 0 11.9-5.36 11.9-11.9 0-3.18-1.24-6.16-3.44-8.35zM12.05 21.5h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.21-3.63.96.97-3.54-.23-.36a9.6 9.6 0 0 1-1.47-5.11c0-5.3 4.32-9.62 9.63-9.62 2.57 0 4.98 1 6.8 2.82a9.56 9.56 0 0 1 2.82 6.8c0 5.31-4.32 9.6-9.63 9.6zm5.27-7.2c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.3-1.42-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.04-.5-.1-.14-.6-1.45-.82-1.98-.22-.53-.45-.46-.62-.47h-.53c-.17 0-.45.07-.69.34-.24.27-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.78 2.72 4.32 3.71 2.55 1 2.55.67 3.01.63.46-.05 1.48-.6 1.69-1.19.21-.6.21-1.1.14-1.21-.07-.1-.27-.17-.56-.31z"/></svg>WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <button class="lightbox-nav next" id="lbNext" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+</div>
+
+<script>
+  /* ---------- navbar scroll state ---------- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ---------- mobile menu ---------- */
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  }));
+
+  /* ---------- hero slideshow ---------- */
+  const slides = document.querySelectorAll('.hero-slide');
+  let slideIndex = 0;
+  setInterval(() => {
+    slides[slideIndex].classList.remove('active');
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add('active');
+  }, 5500);
+
+  /* ---------- floating petals ---------- */
+  const petalsContainer = document.getElementById('petals');
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (10 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 14) + 's';
+    p.style.transform = 'scale(' + (0.6 + Math.random() * 0.8) + ')';
+    p.style.background = Math.random() > 0.5 ? 'var(--blush)' : 'var(--gold)';
+    petalsContainer.appendChild(p);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---------- counters ---------- */
+  const counters = document.querySelectorAll('.counter-num');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1600;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => counterIO.observe(el));
+
+  /* ---------- lightbox ---------- */
+  const masonryItems = Array.from(document.querySelectorAll('.masonry-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  let lbIndex = 0;
+
+  function openLightbox(i) {
+    lbIndex = i;
+    lbImg.src = masonryItems[lbIndex].dataset.full;
+    lbImg.alt = masonryItems[lbIndex].querySelector('img').alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function showDelta(delta) {
+    lbIndex = (lbIndex + delta + masonryItems.length) % masonryItems.length;
+    lbImg.src = masonryItems[lbIndex].dataset.full;
+    lbImg.alt = masonryItems[lbIndex].querySelector('img').alt;
+  }
+  masonryItems.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', () => showDelta(-1));
+  document.getElementById('lbNext').addEventListener('click', () => showDelta(1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showDelta(-1);
+    if (e.key === 'ArrowRight') showDelta(1);
+  });
+  /* swipe support */
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (dx > 50) showDelta(-1);
+    else if (dx < -50) showDelta(1);
+  });
+
+  /* ---------- mobile bottom nav active state ---------- */
+  const navSections = ['home','stories','films','contact'];
+  const navItems = document.querySelectorAll('.mobile-nav li a:not(.wa)');
+  const sectionIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { threshold: 0.4 });
+  navSections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionIO.observe(el);
+  });
+</script>
+</body>
+</html>
